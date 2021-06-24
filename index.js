@@ -19,7 +19,7 @@ const app = async () => {
 
     // Set ListTagsForResourceCommandInput
     const resourceArn = core.getInput('registry');
-    console.log({ resourceArn })
+    console.log({ resourceArn: resourceArn.split('').join('-') })
     const params = {
       /** input parameters */
       resourceArn
