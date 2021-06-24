@@ -4,7 +4,7 @@ inputs:
   tag:
     description: 'The tag to look for'
     required: true
-  ecr-repo:
+  registry:
     description: 'We will look into this ecr repo for the tag'
     required: true
   region:

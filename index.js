@@ -17,7 +17,7 @@ try {
   const client = new ECRClient({ region });
 
   // Set ListTagsForResourceCommandInput
-  const resourceArn = core.getInput('ecr-repo');
+  const resourceArn = core.getInput('registry');
   const params = {
     /** input parameters */
     resourceArn
