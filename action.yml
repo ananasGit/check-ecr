@@ -1,0 +1,19 @@
+name: 'Hello World'
+description: 'Greet someone and record the time'
+inputs:
+  tag:
+    description: 'The tag to look for'
+    required: true
+  ecr-repo:
+    description: 'We will look into this ecr repo for the tag'
+    required: true
+  region:
+    description: 'We will look into this AWS region for the tag'
+    required: false
+    default:  'us-east-1'
+outputs:
+  found: # id of output
+    description: 'If found it will return the string `true`'
+runs:
+  using: 'node12'
+  main: 'index.js'
