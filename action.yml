@@ -16,4 +16,4 @@ outputs:
     description: 'If found it will return the string `true`'
 runs:
   using: 'node12'
-  main: 'index.js'
+  main: 'dist/index.js'
