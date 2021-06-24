@@ -19,6 +19,7 @@ const app = async () => {
 
     // Set ListTagsForResourceCommandInput
     const resourceArn = core.getInput('registry');
+    console.log({ resourceArn })
     const params = {
       /** input parameters */
       resourceArn
