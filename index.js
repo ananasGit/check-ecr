@@ -30,6 +30,9 @@ const app = async () => {
       repositoryName: name,
       filter: tag
     };
+
+    console.log({ params })
+
     const command = new ListImagesCommand(params);
 
     const data = await client.send(command);
