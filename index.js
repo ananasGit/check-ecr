@@ -1,18 +1,9 @@
-const { ECRClient, ListTagsForResourceCommand } = require("@aws-sdk/client-ecr");
+const { ECRClient, ListImagesCommand } = require("@aws-sdk/client-ecr");
 const { STSClient, GetCallerIdentityCommand } = require("@aws-sdk/client-sts");
 const core = require('@actions/core');
 
 const app = async () => {
   try {
-    //   // `who-to-greet` input defined in action metadata file
-    //   const nameToGreet = core.getInput('who-to-greet');
-    //   console.log(`Hello ${nameToGreet}!`);
-    //   const time = (new Date()).toTimeString();
-    //   core.setOutput("time", time);
-    //   // Get the JSON webhook payload for the event that triggered the workflow
-    //   const payload = JSON.stringify(github.context.payload, undefined, 2)
-    //   console.log(`The event payload: ${payload}`);
-
     // Configure the client
     const region = core.getInput('region');
 
@@ -22,7 +13,7 @@ const app = async () => {
     const callerIdCommand = new GetCallerIdentityCommand();
     const callerIdResponse = await stsClient.send(callerIdCommand);
 
-    // Set ListTagsForResourceCommandInput
+    // Set ListImagesCommandInput
     const registry = core.getInput('registry');
 
     // 038098751075.dkr.ecr.us-east-1.amazonaws.com/microservice-bedrock-camunda
@@ -33,10 +24,13 @@ const app = async () => {
 
     console.log({ resourceArn })
 
+    const tag = core.getInput('registry');
+
     const params = {
-      resourceArn
+      repositoryName: name,
+      filter: tag
     };
-    const command = new ListTagsForResourceCommand(params);
+    const command = new ListImagesCommand(params);
 
     const data = await client.send(command);
 
