@@ -1,5 +1,5 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'ECR check Tag'
+description: 'This action is to check if an action with a tag already exists on a ECR repo, this is useful when the ECR repo has immutable tags.'
 inputs:
   tag:
     description: 'The tag to look for'
