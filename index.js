@@ -25,7 +25,7 @@ const app = async () => {
     const data = await client.send(command);
 
     // Set the output if the image has been found
-    if (data?.images?.length >= 1) {
+    if (data.images.length >= 1) {
       core.setOutput("found", "true");
     } else {
       core.setOutput("found", "false");
