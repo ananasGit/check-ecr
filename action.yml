@@ -1,4 +1,4 @@
-name: 'ECR check Tag'
+name: 'ECR check Tags'
 description: 'This action is to check if an action with a tag already exists on a ECR repo.'
 inputs:
   tag:
